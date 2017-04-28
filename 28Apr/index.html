@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body ng-app="myapp">
+		<section ng-controller="ACtrl">
+			{{3+x}}
+			
+			<button ng-click="myscopeclick()"></button>
+		</section>
+		<section ng-controller="BCtrl">
+			<input ng-model="q" type="password">
+			<input ng-model="fruit">
+			<input type="checkbox" ng-model="mycheck" ng-init="mycheck=true"/>
+			
+			{{mycheck}}
+			<br>
+			Fruilts
+			<select ng-model="fruit" ng-init="fruit=''" >
+				<option value="" selected>Select a fruit</option>
+				<option value="1">Organge</option>
+				<option value="2">Mango</option>
+				<option value="3">Apple</option>
+				<option value="4">Banana</option>
+			</select>
+			{{q}}
+			<br />
+			<br />
+			<br />
+			<br />
+			<input type="number" ng-model="mynum" />
+			<div ng-show="mynum>100">
+				Show St.
+			</div>
+			<div ng-hide="mynum>100">
+				Hide St.
+			</div>
+			<div ng-if="mynum>100">
+				If St.
+			</div>
+			
+			
+		</section>
+		
+		
+		
+		<section ng-controller="CCtrl">
+			<div ng-repeat="x in arr">
+				Hello {{x}}
+			</div>
+			
+			
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Roll</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="stu in students">
+						<td>{{stu.name}}</td>
+						<td>{{stu.roll}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</section>
+		
+		
+		<button ng-click="myclick()">Change</button>
+		
+	
+		<script src="angular.min.js"></script>
+		<script>
+			//                 Module name, Dependencies
+			
+			var o=angular.module('myapp',[]);
+			// $rootScope
+			o.run(function($rootScope){
+				console.log('App is in run state1');
+				$rootScope.x=1000;
+				$rootScope.myclick=function(){
+					$rootScope.x=10000;
+				}
+			});
+			
+			//$scope
+			o.controller('ACtrl',['$scope','$rootScope',function($scope,$rootScope){
+				$scope.x=500;
+				
+				$scope.myscopeclick=function(){
+					$scope.x=5000;
+					$rootScope.x=100000000;
+				}
+			}]);
+			o.controller('BCtrl',function($scope){
+				
+			});
+			
+			
+			o.controller('CCtrl',['$scope',function($scope){
+				$scope.arr=[1,2,3,4,5]
+				
+				$scope.students=[
+					{name:'Nadeem',roll:1},
+					{name:'Rahul',roll:2},
+					{name:'Umer',roll:3}
+				]
+			}]);
+		</script>
+	</body>
+</html>
