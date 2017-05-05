@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+		<link href="css/mycss.css" rel="stylesheet" />
+		<title>Routing</title>
+		<base href="/">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="#">Ex1</a>
+					</div>
+					<ul class="nav navbar-nav">
+					  <li><a href="/">Home</a></li>
+					  <li><a href="/aboutus">About Us</a></li>
+					  <li><a href="/contactus">Contact Us</a></li>
+					</ul>
+				  </div>
+			</nav>
+		</header>
+		<section>
+			<div class="content" ng-view>
+			</div>
+		</section>
+		<footer>
+			My First Example of routing
+		</footer>
+	
+	
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/angular-messages.min.js"></script>
+		<script src="js/app.js"></script>
+		
+	</body>
+</html>

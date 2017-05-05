@@ -15,15 +15,33 @@
 	</head>
 	<body>
 		<section class="container" ng-controller="AbcController">
+			
+			<!--
+			<div ng-messages="obj">
+			<span ng-message="e">E</span>
+				<span ng-message="a">A</span>
+				<span ng-message="b">B</span>
+				<span ng-message="c">C</span>
+				<span ng-message="d">D</span>
+				
+			</div>
+			
+			-->
+		
+			
 			<div class="row">
 			<form name="contactForm" role="form" ng-submit="contactForm.$valid && myfun2()" novalidate>
 				<div class="col-md-6 col-md-offset-3">
 					<div class="form-group">	
 						<label>Name</label>
 						<input name="name" class="form-control" ng-model="contact.name" minlength="3" required>
-						<span class="text-danger" ng-show="(contactForm.$submitted || contactForm.name.$touched) && contactForm.name.$error.required">Name is required</span>
 						
-						<span class="text-danger" ng-show="contactForm.name.$touched && contactForm.name.$error.minlength">Name should atleast contain 3 letters.</span>
+						<span ng-show="contactForm.$submitted || contactForm.name.$touched" class="text-danger text-sm" ng-messages="contactForm.name.$error">
+							<span ng-message="required">Name is required</span>
+							<span ng-message="minlength">Name should atleast contain 3 letters.</span>
+						</span>
+						
+						
 					</div>
 					<div class="form-group">
 						<label>Phone</label>
@@ -47,13 +65,16 @@
 					</pre>
 				</div>
 			</form>
-			</div>
+			</div> 
 		</section>
 		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		
 		<script src="js/angular.min.js"></script>
+		<script src="js/angular-messages.min.js"></script>
 		<script src="js/app.js"></script>
+		
 		
 	</body>
 </html>
