@@ -1,0 +1,5 @@
+<strong>About Us</strong>
+
+{{contact}}
+
+<input ng-model="contact.name">

@@ -1,0 +1,11 @@
+<form ng-submit="calc()">
+	EUR : <input type="number" ng-model="num" required />
+	<input type="submit" value="Submit" />
+	<strong ng-if="state==3">USD :   {{USD*num |currency}}, INR : {{INR*num | currency:'&#x20b9; '}}</strong>
+	
+	<br />
+	<input ng-model="mytext" />
+	{{mytext | uppercase}} <br />
+	<input type="date" ng-model="mydate" />
+	{{mydate | date : 'dd/MM/yyyy hh:mm a'}} <br />
+</form>
