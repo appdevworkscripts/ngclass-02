@@ -24,5 +24,8 @@ app.controller('AbcController',['$scope',function($scope){
 		//	console.log($scope.contact);
 		//}
 		console.log($scope.contact);
+		$scope.contact={};
+		$scope.contactForm.$setPristine(); 
+		$scope.contactForm.$setUntouched();
 	}
 }]);
