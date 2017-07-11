@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="myapp">
+	<head>
+	</head>
+	<body>
+		<div ng-controller="UserController">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Password</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users">
+						<td>{{user.name}}</td>
+						<td>{{user.password}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<form ng-submit="submitForm()">
+				Name<input required ng-model="user.name"><br />
+				Password<input required ng-model="user.password"><br />
+				<button>Submit</button>
+			</form>
+		</div>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

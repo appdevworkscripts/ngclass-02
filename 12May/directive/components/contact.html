@@ -1,0 +1,7 @@
+<div style="border:1px solid; width:200px; text-align:center; border-radius:15px;float:left;">
+	{{gmapkey}}
+	<img ng-src="https://maps.googleapis.com/maps/api/staticmap?key={{gmapkey}}&center={{obj.location}}&size=180x100"  ng-click="fun()" />
+	<br />
+	<h3>{{obj.name}}</h3>
+	<strong>{{obj.roll}}</strong>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="mypp">
+	<head>
+	</head>
+	<body>
+	
+	
+		<section ng-controller="XyzController">
+			<my-user name="xyz" msg="this is msg1"></my-user>
+			<my-user name="pqr" msg="this is msg2"></my-user>
+			<div my-user2 obj="{name:'RST',msg:'my custom message'}"></div>
+			
+			
+			<contact obj="stu" ng-repeat="stu in students | orderBy:'roll'"></contact>
+		</section>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

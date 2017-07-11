@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="mypp">
+	<head>
+	</head>
+	<body>
+	
+	
+		<section ng-controller="XyzController">
+			<input type="text" ng-model="myfilter" >
+			<table>
+				<thead>
+					<tr>
+						<td>Roll No.</td>
+						<td>Name</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="student in students | filter : myfilter | orderBy : '-roll' | limitTo:4">
+						<td>{{student.roll}}</td>
+						<td>{{student.name | uppercase}}</td>
+						<td>
+						<img ng-src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyC4dCch-Hn4tiuhV7bD30VM5Am8fcbX7Wg&center={{student.location}}&size=500x200&maptype=hybrid" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="number" ng-model="inr" /><button ng-click="calc()">Calculate</button>
+			<br />USD {{usd | currency}}
+			<br />AUD {{aud | currency : 'AUD'}}
+			<input type="text" ng-model="location" />
+			
+			<img ng-src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyC4dCch-Hn4tiuhV7bD30VM5Am8fcbX7Wg&center={{location}}&size=500x200&maptype=hybrid" />
+		</section>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
